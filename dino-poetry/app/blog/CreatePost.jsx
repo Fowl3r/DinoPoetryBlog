@@ -3,16 +3,17 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { getPosts } from "./page";
 
 export default function CreatePost(){
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    const [category, setCategory] = useState('');
+    // const [category, setCategory] = useState('');
 
     const router = useRouter();
 
-    const create = async(event) => {
-        event.preventDefault()
+    const create = async(e) => {
+        e.preventDefault()
         await fetch('http://127.0.0.1:8090/api/collections/posts/records',{
         method: 'POST',
             headers: {
@@ -26,9 +27,10 @@ export default function CreatePost(){
         })
         setBody('');
         setTitle('');
+        router.refresh()
+        // getPosts();
         // setCategory('');
 
-        router.refresh()
   
     }
 
@@ -62,4 +64,3 @@ export default function CreatePost(){
     )
 
 }
-              /*  */
