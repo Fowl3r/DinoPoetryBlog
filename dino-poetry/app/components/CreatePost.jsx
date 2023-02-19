@@ -3,12 +3,18 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { getPosts } from "./page";
+
+/* 
+PLAN:
+Allow for text layout to be incorporated (poems)
+? Will need a specialised text entry form
+*/
+
 
 export default function CreatePost(){
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    // const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('');
 
     const router = useRouter();
 
@@ -22,43 +28,58 @@ export default function CreatePost(){
             body: JSON.stringify({
                 title,
                 body,
-                // category,
+                category,
             })
         })
+        console.log(category)
         setBody('');
         setTitle('');
+        setCategory('');
         router.refresh()
         // getPosts();
-        // setCategory('');
 
   
     }
 
 
     return (
-        <form onSubmit={create}>
-            <h3>Create a new post</h3>
+        <form 
+        onSubmit={create}
+        className='poem-form'
+        >
+            <h1
+            className="create-header"
+            >Compose a new poem...</h1>
             <input
             type='text'
             placeholder='Title'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            className='title-input'
              />
              <textarea
              placeholder="Body"
              value={body}
              onChange={(e) => setBody(e.target.value)}
+             className='body-input'
               />
-{/* <select
+             <p
+             className="poem-tags"
+             > Poem Tags </p> 
+                <select
               value={category}
+              className='select-input'
                onChange={(e) => setCategory(e.target.value)}>
+                <option >please select...</option>
                 <option value="Happy">Happy</option>
                 <option value="Sad">Sad</option>
                 <option value="Therapy">Therapy</option>
                 <option value="Expression Dump">Expression Dump</option>
-              </select> */}
-              <button type='submit'>
-                Create Post
+              </select>
+              <button
+              className="create-btn"
+               type='submit'>
+                Create Poem
               </button>
         </form>
     )

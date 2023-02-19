@@ -1,4 +1,3 @@
-import CreatePost from "./CreatePost";
 import Link from "next/link";
 import DeletePost from "./DeletePost";
 
@@ -25,7 +24,6 @@ export default async function BlogPage() {
     })
     }
     </div>
-    <CreatePost />
     </div>
   )
 }

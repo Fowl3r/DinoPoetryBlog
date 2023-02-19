@@ -42,12 +42,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-   --background-main: #008080
+   --background-main: #008080;
+   --text-main: white;
   }
 }
 @media (prefers-color-scheme: light) {
   :root {
-   --background-main: #EAF4FC
+   --background-main: #EAF4FC;
+   --text-main: black;
   }
 }
 
@@ -55,6 +57,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 html,
@@ -68,7 +71,8 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: var(--background-main)
+  background: var(--background-main);
+  color: var(--text-main);
 }
 
 a {
@@ -88,14 +92,72 @@ a {
 
 @layer components {
 
+.top-nav {
+  @apply min-w-[100vw] bg-[#002C2C] flex justify-center
+}
 
+.dino-icon {
+  @apply my-2 cursor-pointer
+}
+
+.home-div {
+  @apply flex flex-col justify-center items-center
+}
+
+.home-pic{
+  @apply mx-auto mt-8
+}
+
+.home-title {
+  @apply text-6xl font-semibold
+}
+
+.home-paragraph{
+  @apply text-3xl text-center pt-3
+}
+
+.create-header{
+  @apply text-center
+}
+
+.poem-form{
+  @apply flex flex-col
+}
+
+.title-input{
+  @apply my-4 text-center placeholder-white h-8
+}
+ 
+.body-input{
+  @apply my-4 text-center placeholder-white h-[30vh]
+}
+
+.select-input{
+  @apply my-4 text-center h-8
+} 
+
+.poem-tags {
+  @apply text-center
+}
+
+.create-btn{
+  @apply w-[40vw] mx-auto bg-black p-5 rounded-xl bg-[#002C2C]
+}
 
 .footer-bar {
-  @apply absolute inset-x-0 bottom-0 flex justify-between mt-auto mx-2 mb-2 
+  @apply absolute inset-x-0 bottom-0 flex justify-between  mt-auto 
+}
+
+.footer-menu-icon{
+  @apply mb-2 mx-2 cursor-pointer
+}
+
+.burger-close-container{
+  @apply absolute inset-x-0 bottom-0 flex
 }
 
 .burger-close{
-  @apply text-[#002C2C] text-5xl z-[100]
+  @apply text-[#002C2C] text-5xl z-[100] mx-auto mb-2 cursor-pointer
 }
 
 .burger-overlay{
@@ -107,14 +169,14 @@ a {
  }
 
 .burger-menu-items-container{
-  @apply flex flex-col z-[10]  absolute  right-0 bottom-0 pb-12  justify-center items-center w-screen h-[45vh] bg-[#EAF4FC] rounded-t-2xl
+  @apply flex flex-col z-[10]  absolute  right-0 bottom-0 pb-12  justify-center items-center w-screen h-[50vh] bg-[#EAF4FC] rounded-t-2xl
 }
 .burger-menu-item{
-  @apply min-w-[90vw] bg-[#002C2C] px-32 h-[8vh] my-2  mb-4 mx-auto text-white rounded-3xl text-center flex justify-center items-center
+  @apply min-w-[90vw] bg-[#002C2C] px-32 h-[8vh] my-2 py-8 mb-4 mx-auto text-white rounded-3xl text-center flex justify-center items-center cursor-pointer
 }
 
 .burger-menu-item-icon{
-  @apply absolute left-20
+  @apply absolute left-20 cursor-pointer
 }
 
 }
