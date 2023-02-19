@@ -7,11 +7,16 @@ when using the turbo-webpack posts that have been deleted appear on refresh and 
 /* 🗺️Plan🗺️:
 Create & Style NavBar ✅
 Create & Style poem compose page ✅
+
+!^^^ incorporate rich text editor
 Style home page. ✅
-Style Blog posts page:
+!Style Blog posts page:
     - page 
+    - fallback image if none uploaded
     -each post
-create auth
+
+!Create ability to share on socials
+!create auth
 allow logged in user to:
 protected routes
     edit
@@ -19,6 +24,11 @@ protected routes
     create
     upload pictures
     select category ✅
+! go through code base for accessibility, using ARIA and test with screen reader
+!Testing
+
+    STRETCH GOALS:
+    incorporate text to speech
 */
 
 import mushroom from '../public/mushrooms.svg'
@@ -30,7 +40,10 @@ export default function Homepage(){
         <div className='home-div'>
         <Image src={mushroom} alt='cartoon mushroom' className='home-pic' />
             <h1 className='home-title'>About</h1>
-            <p className='home-paragraph'>i am Parv lord of the mushrooms and writer of the poems, plant enthusiast and eccentric bish. Power to the plants, fuck them people!  </p>
+            <p
+            className='home-paragraph'>
+            i am Parv lord of the mushrooms and writer of the poems, plant enthusiast and eccentric bish. Power to the plants, fuck them people!  
+            </p>
 
         </div>
     )
