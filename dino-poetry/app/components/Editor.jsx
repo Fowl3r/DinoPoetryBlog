@@ -174,7 +174,6 @@ export default function Editor({setBody}) {
     onUpdate: ({editor}) => {
         const html = editor.getHTML()
         setBody(html)
-        console.log(html)
     },
   })
 

@@ -271,4 +271,30 @@ a {
   @apply absolute left-20 cursor-pointer
 }
 
+.blog-display{
+  @apply bg-white
+}
+
+.card-holder{
+  @apply flex flex-col items-center 
+}
+
+.card {
+  @apply outline-double outline-red-500 flex flex-col inset-x-0 rounded-xl w-[90vw] bg-[var(--background-main)] my-6
+}
+.card-title {
+  @apply  text-center bg-[#002C2C] rounded-t-xl py-2
+}
+.card-body {
+  @apply outline-dashed outline-white text-right
+}
+
+.timestamps{
+  @apply flex mx-auto  outline-red-600 outline-8 text-center
+}
+
+.card-category{
+  @apply text-center
+}
+
 }

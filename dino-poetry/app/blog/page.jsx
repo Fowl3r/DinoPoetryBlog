@@ -16,9 +16,9 @@ export default async function BlogPage() {
     const posts = await getPosts();
  
     return (
-    <div>
+    <div className='blog-display'>
     <h1>posts</h1>
-    <div>   
+    <div className="card-holder">   
     {posts?.map((post) => {
         return <PostCard key={post.id} post={post} />;
     })
@@ -36,9 +36,11 @@ function PostCard({post}) {
         <Link href={`/blog/${id}`}>
                 <h2 className='card-title'>{title}</h2>
                 <h5 className='card-body'>{body}</h5>
-                <p>{category}</p>
+                <p className='card-category'>{category}</p>
+                <div className='timestamps'>
                 <p>{created}</p>
                 <p>{updated}</p>
+                </div>
                 </Link>
                 <DeletePost post={post}   />
                 {/* <button
