@@ -1,8 +1,12 @@
+'use client'
+
 import Link from "next/link";
 import DeletePost from "./DeletePost";
+import  useEditor  from '@tiptap/react'
 
 export async function getPosts(){
-    const res = await fetch('http://127.0.0.1:8090/api/collections/posts/records?page=1&perPage=10',
+    const URL = process.env.NEXT_PUBLIC_PB_URL
+    const res = await fetch(`${URL}?page=1&perPage=10`,
     {cache: 'no-store'}
 );
 //    next will cache this as link is not dynamic so need this to make sure fetch is sent for every request

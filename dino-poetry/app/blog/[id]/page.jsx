@@ -1,6 +1,6 @@
 async function getPost(postId) {
     const res = await fetch(
-        `http://127.0.0.1:8090/api/collections/posts/records/${postId}`,
+        `https://dino-poetry.fly.dev/api/collections/posts/records/${postId}`,
         {
             // will revalidate data if older than 5 seconds
             next: {revalidate: 5},

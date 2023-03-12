@@ -21,9 +21,11 @@ export default function CreatePost(){
 
     const router = useRouter();
 
+    const URL = process.env.NEXT_PUBLIC_PB_URL
+
     const create = async(e) => {
         e.preventDefault()
-        await fetch('http://127.0.0.1:8090/api/collections/posts/records',{
+        await fetch(URL,{
         method: 'POST',
             headers: {
                 'Content-Type':'application/json',
@@ -34,7 +36,7 @@ export default function CreatePost(){
                 category,
             })
         })
-        console.log(category)
+        console.log(JSON.stringify(body))
         setBody('');
         setTitle('');
         setCategory('');
@@ -66,7 +68,7 @@ export default function CreatePost(){
              onChange={(e) => setBody(e.target.value)}
              className='body-input'
               /> */}
-              <Editor setBody={setBody}  />
+              <Editor setBody={setBody} body={body}  />
              <p
              className="poem-tags"
              > Poem Tags </p> 

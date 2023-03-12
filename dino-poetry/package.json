@@ -15,6 +15,7 @@
     "@tiptap/pm": ">=2.0.0-beta.209 <3.0.0",
     "@tiptap/react": "2.0.0-beta.218",
     "@tiptap/starter-kit": "2.0.0-beta.218",
+    "dotenv": "^16.0.3",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "html-react-parser": "^3.0.9",

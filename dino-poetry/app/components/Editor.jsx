@@ -172,8 +172,9 @@ export default function Editor({setBody}) {
     ],
     content: ``,
     onUpdate: ({editor}) => {
-        const html = editor.getHTML()
-        setBody(html)
+      const json = editor.getText()
+        console.log(editor.getText())
+        setBody(json)
     },
   })
 
