@@ -36,7 +36,7 @@ export default function CreatePost(){
                 category,
             })
         })
-        console.log(JSON.stringify(body))
+        // console.log(JSON.stringify(body))
         setBody('');
         setTitle('');
         setCategory('');

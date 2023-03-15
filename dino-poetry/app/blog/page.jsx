@@ -1,8 +1,15 @@
-'use client'
 
 import Link from "next/link";
 import DeletePost from "./DeletePost";
-import  useEditor  from '@tiptap/react'
+import DisplayRichText from "../components/DisplayRichText";
+/* 
+PLAN:
+- use different instance of editor to display
+read only version of rich text,
+ then conditionally render
+an edit button if admin is logged in which then renders
+editable version of text, 
+*/
 
 export async function getPosts(){
     const URL = process.env.NEXT_PUBLIC_PB_URL
@@ -38,8 +45,9 @@ function PostCard({post}) {
 
             <div className='card'>
         <Link href={`/blog/${id}`}>
-                <h2 className='card-title'>{title}</h2>
-                <h5 className='card-body'>{body}</h5>
+                <h2 className='text-white card-title'>{title}</h2>
+                {/* <h3 className="card-body">{JSON.stringify(body)}</h3> */}
+                <DisplayRichText className='bg-white' body={body} />
                 <p className='card-category'>{category}</p>
                 <div className='timestamps'>
                 <p>{created}</p>

@@ -6,7 +6,8 @@ export default function DeletePost({post}){
 const router = useRouter()
 
 async function removePost(postId){
-    await fetch(`http://127.0.0.1:8090/api/collections/posts/records/${postId}`, {
+    const URL = process.env.NEXT_PUBLIC_PB_URL
+    await fetch(`${URL +'/' +postId}`, {
     method: 'DELETE',
     })
     router.refresh()

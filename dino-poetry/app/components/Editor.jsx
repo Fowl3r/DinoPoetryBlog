@@ -2,7 +2,7 @@ import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import { FaBold, FaCode, FaHeading, FaItalic, FaListOl, FaListUl, FaQuoteLeft, FaRedo, FaRulerHorizontal, FaStrikethrough, FaUnderline, FaUndo } from 'react-icons/fa'
 import Underline from '@tiptap/extension-underline'
-import parser from 'html-react-parser'
+
 
 const MenuBar = ({ editor }) => {
   if (!editor) {
@@ -164,17 +164,15 @@ const MenuBar = ({ editor }) => {
   )
 }
 
-export default function Editor({setBody}) {
+export default function Editor({setBody, body}) {
   const editor = useEditor({
     extensions: [
       StarterKit,
       Underline
     ],
-    content: ``,
+    content: `${body}`,
     onUpdate: ({editor}) => {
-      const json = editor.getText()
-        console.log(editor.getText())
-        setBody(json)
+        setBody(editor.getJSON())
     },
   })
 

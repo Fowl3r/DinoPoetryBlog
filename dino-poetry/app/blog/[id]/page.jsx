@@ -1,6 +1,9 @@
+import DisplayRichText from "../../components/DisplayRichText";
+
 async function getPost(postId) {
+    const URL = process.env.NEXT_PUBLIC_PB_URL
     const res = await fetch(
-        `https://dino-poetry.fly.dev/api/collections/posts/records/${postId}`,
+        `${URL + '/' + postId}`,
         {
             // will revalidate data if older than 5 seconds
             next: {revalidate: 5},
@@ -18,7 +21,7 @@ export default async function PostPage({params}){
             <h1>Post/{post.id}</h1>
             <div>
                 <h3>{post.title}</h3>
-                <h3>{post.body}</h3>
+                <DisplayRichText body={post.body} />
                 <h3>{post.category}</h3>
             </div>
         </div>

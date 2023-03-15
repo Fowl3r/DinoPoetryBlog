@@ -1,6 +1,9 @@
 /* 🪲 BUG REPORT 🪲:
 when using the turbo-webpack posts that have been deleted appear on refresh and when page is refreshed after creating/deleteing a post the posts do not appear 
-
+Bullet list, numbered list and block quote functionality not working
+each post page error 
+Unhandled Runtime Error
+Error: Objects are not valid as a React child (found: object with keys {content, type}). If you meant to render a collection of children, use an array instead.
 
 */
 
