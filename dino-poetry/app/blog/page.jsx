@@ -1,6 +1,7 @@
 
 import Link from "next/link";
-import DeletePost from "./DeletePost";
+import getPosts from "../models/GetPosts";
+import DeletePost from "../models/DeletePost";
 import DisplayRichText from "../components/DisplayRichText";
 /* 
 PLAN:
@@ -10,18 +11,6 @@ read only version of rich text,
 an edit button if admin is logged in which then renders
 editable version of text, 
 */
-
-export async function getPosts(){
-    const URL = process.env.NEXT_PUBLIC_PB_URL
-    const res = await fetch(`${URL}?page=1&perPage=10`,
-    {cache: 'no-store'}
-);
-//    next will cache this as link is not dynamic so need this to make sure fetch is sent for every request
-// like getServerSideProps
-    const data = await res.json();
-    console.log(data.items)
-    return data?.items;
-}
 
 export default async function BlogPage() {
     const posts = await getPosts();
