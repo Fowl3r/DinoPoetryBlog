@@ -1,6 +1,5 @@
 'use client';
 import { useRouter } from "next/navigation";
-import { getPosts } from "../blog/page";
 
 export default function DeletePost({post}){
 const router = useRouter()
