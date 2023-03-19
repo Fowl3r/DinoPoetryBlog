@@ -17,13 +17,12 @@ export default async function PostPage({params}){
     const post = await getPost(params.id);
     
     return (
-        <div>
-            <h1>Post/{post.id}</h1>
+
             <div>
-                <h3>{post.title}</h3>
+                <h1>{post.title}</h1>
                 <DisplayRichText body={post.body} />
                 <h3>{post.category}</h3>
             </div>
-        </div>
+        
     )
 }

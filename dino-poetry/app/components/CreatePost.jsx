@@ -5,14 +5,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Editor from "./Editor";
 
-/* 
-PLAN:
-Allow for text layout to be incorporated (poems)
-? Will need a specialised text entry form
-^^^ Rich Text Editor
-publish & save to drafts functionality?
-*/
-
 
 export default function CreatePost(){
     const [title, setTitle] = useState('');

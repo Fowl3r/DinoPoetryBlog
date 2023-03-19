@@ -2,14 +2,7 @@
 import Link from "next/link";
 import DeletePost from "../components/DeletePost";
 import DisplayRichText from "../components/DisplayRichText";
-/* 
-PLAN:
-- use different instance of editor to display
-read only version of rich text,
- then conditionally render
-an edit button if admin is logged in which then renders
-editable version of text, 
-*/
+
 
 async function getPosts(){
     const URL = process.env.NEXT_PUBLIC_PB_URL

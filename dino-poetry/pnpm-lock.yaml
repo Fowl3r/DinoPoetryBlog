@@ -19,9 +19,11 @@ specifiers:
   eslint-config-next: 13.1.6
   html-react-parser: ^3.0.9
   next: 13.1.6
+  pocketbase: ^0.12.1
   postcss: ^8.4.21
   react: 18.2.0
   react-dom: 18.2.0
+  react-hook-form: ^7.43.7
   react-icons: ^4.7.1
   tailwindcss: ^3.2.6
   tiptap-extensions: ^1.35.2
@@ -45,8 +47,10 @@ dependencies:
   eslint-config-next: 13.1.6_4vsywjlpuriuw3tl5oq6zy5a64
   html-react-parser: 3.0.9_react@18.2.0
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
+  pocketbase: 0.12.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.43.7_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
   tiptap-extensions: 1.35.2_kkgmet4ypxsptpud4r424vejoq
   vue: 2.5.17
@@ -2426,6 +2430,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /pocketbase/0.12.1:
+    resolution: {integrity: sha512-kihThVla/JontCGA2zVGuxk1vWtz/yt7FqnL241oxd+w7RBVNzLIRKN6GolnY9DGOekNmFRb57CL24sbUm4wJA==}
+    dev: false
+
   /postcss-import/14.1.0_postcss@8.4.21:
     resolution: {integrity: sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw==}
     engines: {node: '>=10.0.0'}
@@ -2682,6 +2690,15 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-hook-form/7.43.7_react@18.2.0:
+    resolution: {integrity: sha512-38yehQkQQ5uufaPKFScs7jhLE8n3+LG9H/BZfFAiBL2+7piDmw/BrdNJV4irzMaPnWZGhmGLHVICHXNVGIuXZg==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-icons/4.7.1_react@18.2.0:
