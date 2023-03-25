@@ -4,13 +4,16 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Editor from "./Editor";
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_ADMIN_URL)
 
 
 export default function CreatePost(){
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [category, setCategory] = useState('');
-
+    const isLoggedIn = pb.authStore.isValid;
     const router = useRouter();
 
     const URL = process.env.NEXT_PUBLIC_PB_URL
@@ -40,6 +43,9 @@ export default function CreatePost(){
 
 
     return (
+        <>
+        {isLoggedIn ?
+            
         <form 
         onSubmit={create}
         className='poem-form'
@@ -80,6 +86,11 @@ export default function CreatePost(){
                 Create Poem
               </button>
         </form>
+        
+        :
+        <h1>Please Login To access this page</h1>
+         }
+         </>
     )
 
 }

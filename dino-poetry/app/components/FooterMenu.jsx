@@ -7,9 +7,11 @@ import searchIcon from '../../public/searchIconDark.svg';
 import home from '../../public/homeDark.svg';
 import quill from '../../public/QuillDark.svg';
 import blog from '../../public/BlogDark.svg';
+import loginIcon from '../../public/loginDark.svg'
 import Image from "next/image";
 import {FaWindowClose} from 'react-icons/fa'
 import Link from "next/link";
+import PocketBase from 'pocketbase';
 
 
 /* 
@@ -25,10 +27,11 @@ create search function? - search poems
 
 export default function FooterMenu() {
   const [burgerMenu, setBurgerMenu] = useState(false)
-  
+  const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_ADMIN_URL)
+  const isLoggedIn = pb.authStore.isValid;
+
   function Hamburger(){
     setBurgerMenu(!burgerMenu)
-    console.log('Hamburger clciked')
   }
   return (
     <>
@@ -55,23 +58,35 @@ export default function FooterMenu() {
             }>
             <nav className="burger-menu-items-container">
             <Link href='/'>
-        <button className="burger-menu-item">
+        <button onClick={Hamburger} className="burger-menu-item">
         <Image  src={home} alt='home' className=" burger-menu-item-icon"  />
           Home
         </button>
         </Link>
         <Link href='/blog'>
-        <button className="burger-menu-item">
+        <button onClick={Hamburger} className="burger-menu-item">
         <Image src={blog} alt='poem blog' className=" burger-menu-item-icon"   />
           Blog
         </button>
         </Link>
+        
+        {isLoggedIn ?  
+        <>
         <Link href='/compose'>
-        <button className="burger-menu-item">
+        <button onClick={Hamburger} className="burger-menu-item">
         <Image src={quill} alt='compose' className=" burger-menu-item-icon"   />
           Compose
         </button>
         </Link>
+        </>
+        :
+        <Link href='/login'>
+        <button onClick={Hamburger} className="burger-menu-item">
+        <Image  src={loginIcon} alt='login' className=" burger-menu-item-icon"  />
+          Login
+        </button>
+        </Link>
+        }
         </nav>
     </nav>
     </>

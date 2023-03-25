@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -38,7 +38,7 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -233,11 +233,11 @@ a {
 }
 
 .create-btn{
-  @apply w-[40vw] mx-auto bg-black p-5 rounded-xl bg-[#002C2C]
+  @apply w-[40vw] mx-auto  p-5 rounded-xl bg-[#002C2C]
 }
 
 .footer-bar {
-  @apply absolute inset-x-0 bottom-0 flex justify-between  mt-auto 
+  @apply fixed inset-x-0 bottom-0 flex justify-between  mt-auto bg-[#002C2C] pt-2
 }
 
 .footer-menu-icon{
@@ -245,7 +245,7 @@ a {
 }
 
 .burger-close-container{
-  @apply absolute inset-x-0 bottom-0 flex
+  @apply fixed inset-x-0 bottom-0 flex z-[100]
 }
 
 .burger-close{
@@ -253,7 +253,7 @@ a {
 }
 
 .burger-overlay{
-  @apply  lg:hidden z-[10]  absolute  right-0 bottom-0 flex justify-center items-center w-screen h-full bg-black bg-opacity-80  text-left ease-in duration-300 
+  @apply  lg:hidden z-[10]  fixed  right-0 bottom-14 flex justify-center items-center w-screen h-full bg-black bg-opacity-80  text-left ease-in duration-300 
  }
  
  .burger-overlay-hidden{
@@ -268,7 +268,7 @@ a {
 }
 
 .burger-menu-item-icon{
-  @apply absolute left-20 cursor-pointer
+  @apply absolute left-20 cursor-pointer h-12 w-12
 }
 
 .blog-display{
