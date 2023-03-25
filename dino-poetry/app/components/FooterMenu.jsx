@@ -37,17 +37,24 @@ export default function FooterMenu() {
     <>
     <nav className='footer-bar'>
     
-    <Image src={searchIcon} alt='search button' className="footer-menu-icon" />
-    <Image src={sun} alt='theme toggler' className="footer-menu-icon" />
     
     { burgerMenu? (
       <button className="burger-close-container">
       <FaWindowClose onClick={Hamburger} className='burger-close' />
       </button>
     ) : (
+
+      <>
+      <button>
+      <Image src={searchIcon} alt='search button' className="footer-menu-icon" />
+      </button>
+      <button>
+    <Image src={sun} alt='theme toggler' className="footer-menu-icon" />
+    </button>
       <button>
       <Image src={hamburgerBtn} alt='menu toggler' onClick={Hamburger} className="footer-menu-icon"/>
       </button>
+      </>
     )
     }
     </nav>

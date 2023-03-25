@@ -4,6 +4,7 @@ import DeletePost from "../components/DeletePost";
 import DisplayRichText from "../components/DisplayRichText";
 
 
+
 async function getPosts(){
     const URL = process.env.NEXT_PUBLIC_PB_URL
     const res = await fetch(`${URL}?page=1&perPage=10`,
@@ -34,6 +35,7 @@ export default async function BlogPage() {
 
 function PostCard({post}) {
     const {id, title, body, category,created, updated} = post
+  
     return (
 
             <div className='card'>
@@ -47,7 +49,9 @@ function PostCard({post}) {
                 <p>{updated}</p>
                 </div>
                 </Link>
+                
                 <DeletePost post={post}   />
+                
                 {/* <button
                 onClick={() => {removePost(post.id)}}
                 >Delete</button> */}
