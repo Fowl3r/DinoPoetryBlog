@@ -8,21 +8,18 @@ import blog from '../../public/BlogDark.svg';
 import loginIcon from '../../public/loginDark.svg'
 import {FaWindowClose} from 'react-icons/fa'
 import Link from "next/link";
-import PocketBase from 'pocketbase';
+import {isLoggedIn} from "../lib/pocketbase";
 import Image from "next/image";
 
 /* 
-problem: server and client are out of match
+problem: server and client are out of sync
 because server doesn't know when the user is logged in
 so renders different thing to client
 I don't know why it is a problem when we are using client
 */
 
 export default function BurgerMenu() {
-    const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_ADMIN_URL);
-    const isLoggedIn = pb.authStore.isValid;
     const [burgerMenu, setBurgerMenu] = useState(false)
-   
 
     function Hamburger(){
         setBurgerMenu(!burgerMenu)
@@ -68,9 +65,15 @@ export default function BurgerMenu() {
           Compose
         </button>
         </Link>
+        <Link href='/auth'>
+        <button onClick={Hamburger} className="burger-menu-item">
+        <Image  src={loginIcon} alt='login' className=" burger-menu-item-icon"  />
+          Log Out
+        </button>
+        </Link>
         </>
         :
-        <Link href='/login'>
+        <Link href='/auth'>
         <button onClick={Hamburger} className="burger-menu-item">
         <Image  src={loginIcon} alt='login' className=" burger-menu-item-icon"  />
           Login

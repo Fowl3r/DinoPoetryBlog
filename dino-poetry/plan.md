@@ -14,7 +14,8 @@ Delete button only available to logged in user ✅
 Extract Burger Menu functionality into own component
 Search Functionality
 Themeing
-Refactor log in logic
+Refactor log in logic ✅
+loading component
 
 
 # Current Stretch Goals

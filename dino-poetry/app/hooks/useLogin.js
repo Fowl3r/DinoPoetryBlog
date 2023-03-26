@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import pb from "../lib/pocketbase";
+import {pb }from "../lib/pocketbase";
 
 
 export default function useLogin() {
