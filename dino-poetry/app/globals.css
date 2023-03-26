@@ -265,7 +265,7 @@ a {
   @apply flex flex-col z-[10]  absolute  right-0 bottom-0   justify-center items-center w-screen h-[60vh] bg-[#EAF4FC] rounded-t-2xl
 }
 .burger-menu-item{
-  @apply min-w-[90vw] bg-[#002C2C] px-32 h-[8vh] my-2 py-8 mb-4 mx-auto text-white rounded-3xl text-center flex justify-center items-center cursor-pointer
+  @apply max-w-[90vw] bg-[#002C2C] px-32 h-[8vh] my-2 py-8 mb-4 mx-auto text-white rounded-3xl text-center flex justify-center items-center cursor-pointer
 }
 
 .burger-menu-item-icon{

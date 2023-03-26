@@ -20,12 +20,14 @@ const isLoggedIn = pb.authStore.isValid;
 // const posts = await getPosts();
 
 return (
-    isLoggedIn &&
+
 <button
 onClick={()=>{removePost(post.id)}}
+className={isLoggedIn ? 'block' : 'hidden'  }
 >
     Delete Post
 </button>
-    
+
 )
+
 }

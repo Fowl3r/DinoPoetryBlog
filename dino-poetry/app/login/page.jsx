@@ -2,33 +2,25 @@
 
 import PocketBase from 'pocketbase';
 import {useForm} from 'react-hook-form';
-import { useState } from 'react';
-import {useRouter} from 'next/navigation';
+import useLogout from '../hooks/useLogout';
+import useLogin from '../hooks/useLogin';
 
 const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_ADMIN_URL)
 
 export default function AuthPage() {
-  const router = useRouter();
-  const {register, handleSubmit} = useForm();
-  const [isLoading, setLoading] = useState(false);
+  const logout = useLogout()
+  // the login function can be called mutate, as it is wrapped around useMutate functionality.
+  // however here I have renamed it back to login to make things more explicit
+  // isLoading is now also coming from the useMutation hook
+  const {mutate:login, isLoading, isError } = useLogin();
+  const {register, handleSubmit, reset} = useForm();
   const isLoggedIn = pb.authStore.isValid;
  
-  async function login(data){
-    setLoading(true);
-    try{
-      const authData = await pb
-        .collection('users')
-        .authWithPassword(data.email, data.password)
-    } catch (e) {
-      alert(e)
+  async function onSubmit(data){
+    login({email: data.email, password: data.password});
+    reset();
     }
-    setLoading(false);
-    }
-    function logout() {
-      pb.authStore.clear();
-      router.refresh()
-;
-    }
+  
 
     if (isLoggedIn){
       return(
@@ -41,7 +33,8 @@ export default function AuthPage() {
 
   return (
     <div>
-        <form onSubmit={handleSubmit(login)} className="flex flex-col mx-auto justify-center max-w-[80vw]">
+           {isError && <p>Invalid email or password</p>}
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mx-auto justify-center max-w-[80vw]">
            <h1>Login:{pb.authStore.isValid.toString()}</h1>
            {isLoading && <p>Loaaading...</p>}
            <br/>

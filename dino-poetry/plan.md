@@ -10,7 +10,8 @@ editable version of text,
 ^^^ Rich Text Editor✅
 Fix sticky footer from blocking content ✅
 conditionally render other footer buttons when burger menu is open ✅
-Delete button only available to logged in user
+Delete button only available to logged in user ✅
+Extract Burger Menu functionality into own component
 Search Functionality
 Themeing
 Refactor log in logic
