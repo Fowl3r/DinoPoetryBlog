@@ -1,11 +1,18 @@
 'use client';
 import { useRouter } from "next/navigation";
-import PocketBase from 'pocketbase';
+import { useState, useEffect } from "react";
+import {pb, isLoggedIn} from '../lib/pocketbase';
 
 export default function DeletePost({post}){
 const router = useRouter()
-const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_ADMIN_URL);
+const [loggedIn, setLoggedIn] = useState(false);
 
+useEffect(() => {
+  
+    if(isLoggedIn) {
+      setLoggedIn(true)
+    }
+  },[loggedIn])
 
 async function removePost(postId){
     const URL = process.env.NEXT_PUBLIC_PB_URL
@@ -16,14 +23,12 @@ async function removePost(postId){
     await getPosts()
 }
 
-const isLoggedIn = pb.authStore.isValid;
-// const posts = await getPosts();
 
 return (
 
 <button
 onClick={()=>{removePost(post.id)}}
-className={isLoggedIn ? 'block' : 'hidden'  }
+className={loggedIn ? 'block' : 'hidden'  }
 >
     Delete Post
 </button>

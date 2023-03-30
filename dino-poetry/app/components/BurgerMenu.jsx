@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import hamburgerBtn from "../../public/hamburger button.svg";
 import home from '../../public/homeDark.svg';
 import quill from '../../public/QuillDark.svg';
@@ -19,11 +19,19 @@ I don't know why it is a problem when we are using client
 */
 
 export default function BurgerMenu() {
-    const [burgerMenu, setBurgerMenu] = useState(false)
+    const [burgerMenu, setBurgerMenu] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(false);
 
     function Hamburger(){
         setBurgerMenu(!burgerMenu)
       }
+
+      useEffect(() => {
+  
+        if(isLoggedIn) {
+          setLoggedIn(true)
+        }
+      },[loggedIn])
 
   return (
     <>
@@ -57,7 +65,7 @@ export default function BurgerMenu() {
         </button>
         </Link>
         
-        {isLoggedIn ?  
+        {loggedIn ?  
         <>
         <Link href='/compose'>
         <button onClick={Hamburger} className="burger-menu-item">

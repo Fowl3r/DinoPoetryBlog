@@ -1,13 +1,11 @@
-'use client'
-
-import { useRouter } from 'next/navigation';
 import {pb} from '../lib/pocketbase';
+import { useMutation } from "@tanstack/react-query";
 
 export default function useLogout() {
-    const router = useRouter();
+
     function logout(){
         pb.authStore.clear();
-        router.refresh()
+
     }
-  return logout;
+  return useMutation(logout);
 }

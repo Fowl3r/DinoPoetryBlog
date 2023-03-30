@@ -11,8 +11,8 @@ editable version of text,
 Fix sticky footer from blocking content ✅
 conditionally render other footer buttons when burger menu is open ✅
 Delete button only available to logged in user ✅
-Extract Burger Menu functionality into own component
-Search Functionality
+Extract Burger Menu functionality into own component ✅
+Search Functionality(First search by title and then search by categories?)
 Themeing
 Refactor log in logic ✅
 loading component

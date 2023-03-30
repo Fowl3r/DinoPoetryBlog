@@ -16,13 +16,11 @@ import dynamic from 'next/dynamic';
     async function onSubmit(data){
         login({email: data.email, password: data.password});
         reset();
-        router.refresh();
         }
 
   return (
-      !isLoggedIn && 
-      <>
   <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mx-auto justify-center max-w-[80vw]">
+            {isError && <p>Invalid email or password</p>}
            {isLoading && <p>Loaaading...</p>}
            <br/>
            <h3>Email address:</h3>
@@ -33,8 +31,7 @@ import dynamic from 'next/dynamic';
             {isLoading ? 'Loading' : 'Login'}
             </button>
         </form>
-        {isError && <p>Invalid email or password</p>}
-        </>
+
     
   )
 }
