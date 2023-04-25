@@ -3,10 +3,8 @@ import sun from '../../public/sun.svg';
 import searchIcon from '../../public/searchIconDark.svg';
 import Image from "next/image";
 import BurgerMenu from "./BurgerMenu";
+import Search from './Search';
 
-const DynamicBurger = dynamic(() => import('./BurgerMenu'), {
-  ssr:false,
-})
 
 export default function FooterMenu() {
 
@@ -14,9 +12,9 @@ export default function FooterMenu() {
     <>
     <nav className='footer-bar'>
     
-    <Image src={searchIcon} alt='search button' className="footer-menu-icon" />
+    <Search />
     <Image src={sun} alt='theme toggler' className="footer-menu-icon" />
-   <DynamicBurger  /> 
+   <BurgerMenu  /> 
    
     </nav>
     </>

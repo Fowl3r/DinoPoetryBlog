@@ -3,14 +3,12 @@
 import {useForm} from 'react-hook-form';
 import useLogout from '../hooks/useLogout';
 import useLogin from '../hooks/useLogin';
-import { useRouter } from 'next/navigation';
 import {useEffect, useState} from 'react'
 import {pb} from '../lib/pocketbase';
 
 
 export default function AuthPage() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false)
   const {mutate: logout} = useLogout();
 
   // the login function can be called mutate, as it is wrapped around useMutate functionality.
@@ -23,12 +21,6 @@ export default function AuthPage() {
   async function onSubmit(data){
     login({email: data.email, password: data.password});
     reset();
-    setIsSubmitted(true)
-  }
-
-  async function onClick(){
-    logout();
-    setIsSubmitted(true);
   }
 
 
@@ -52,7 +44,7 @@ export default function AuthPage() {
         <>
           <h1>Logged In As: {pb.authStore.model?.username === null ? 'Not logged in' : pb.authStore.model?.username}</h1>
           <h1>Login:{pb.authStore.isValid.toString()}</h1>
-          <button onClick={onClick}>Log Out</button>
+          <button onClick={logout}>Log Out</button>
         </>
   }
            {isError && <p>Invalid email or password</p>}

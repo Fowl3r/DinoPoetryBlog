@@ -272,6 +272,18 @@ a {
   @apply absolute left-20 cursor-pointer h-12 w-12
 }
 
+.search-bar-hidden {
+  @apply hidden
+}
+
+.search-bar-overlay{
+  @apply fixed bottom-14 w-screen h-full z-[10] flex  bg-black bg-opacity-95  text-left ease-in duration-300
+}
+
+.search-bar-container{
+  @apply flex flex-col z-[10]     justify-center items-center w-screen h-[70vh]  rounded-t-2xl
+}
+
 .blog-display{
   @apply bg-white
 }

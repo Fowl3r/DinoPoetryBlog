@@ -8,30 +8,29 @@ import blog from '../../public/BlogDark.svg';
 import loginIcon from '../../public/loginDark.svg'
 import {FaWindowClose} from 'react-icons/fa'
 import Link from "next/link";
-import {isLoggedIn} from "../lib/pocketbase";
 import Image from "next/image";
+import { pb } from "../lib/pocketbase";
 
-/* 
-problem: server and client are out of sync
-because server doesn't know when the user is logged in
-so renders different thing to client
-I don't know why it is a problem when we are using client
-*/
+
 
 export default function BurgerMenu() {
     const [burgerMenu, setBurgerMenu] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false);
 
+
+    
     function Hamburger(){
         setBurgerMenu(!burgerMenu)
       }
 
       useEffect(() => {
   
-        if(isLoggedIn) {
+        if(pb.authStore.isValid) {
           setLoggedIn(true)
+        } else {
+          setLoggedIn(false)
         }
-      },[loggedIn])
+      },[pb.authStore.isValid])
 
   return (
     <>
