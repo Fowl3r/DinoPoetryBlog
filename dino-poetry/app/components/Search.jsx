@@ -4,6 +4,7 @@ import searchIcon from '../../public/searchIconDark.svg'
 import { FaWindowClose } from "react-icons/fa";
 import Image from "next/image";
 import { pb } from "../lib/pocketbase";
+import SearchResultCard from "./Card";
 
 
 /* 
@@ -18,6 +19,7 @@ takes you to the poem page? < Is this best implementation?
 export default function Search() {
     const [search, setSearch] = useState(false);
     const [searchValue, setSearchValue] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
 
     function searchBar(){
         setSearch(!search);
@@ -28,7 +30,7 @@ export default function Search() {
       databaseLookup(e.target.value); 
     }
 
-   async  function databaseLookup(searchValue){
+   async function databaseLookup(searchValue){
      const results = await pb.collection('posts').getList(1, 50, {
       filter: `title?~"${searchValue}"`,
       timeout: 300,
@@ -36,7 +38,7 @@ export default function Search() {
      if (results.totalItems === 0) {
       console.log('No records found.');
     } else {
-      console.log(results.items[0].title);
+      setSearchResults(results.items);
     }
     }
 
@@ -60,8 +62,16 @@ export default function Search() {
         <div className='search-bar-container'>
         <p className='text-white'>Search for a poem</p>
         <input className='search-bar' type='text' onChange={onChange} />
-        </div>
+        <div className="search-results-container">
+    {searchResults.map((result) => (
+      <SearchResultCard key={result.id} title={result.title} postId={result.id} onClose={searchBar} />
+    ))}
     </div>
+        </div>
+  
+    </div>
+
+
     </>
   )
 }

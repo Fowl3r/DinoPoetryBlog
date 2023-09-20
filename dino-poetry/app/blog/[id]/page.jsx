@@ -15,7 +15,6 @@ async function getPost(postId) {
 
 export default async function PostPage({params}){
     const post = await getPost(params.id);
-    
     return (
 
             <div>
@@ -25,4 +24,16 @@ export default async function PostPage({params}){
             </div>
         
     )
+}
+
+export async function getServerSideProps(context) {
+    const postId = context.params.id;
+    const post = await getPost(postId);
+
+    return {
+        props: {
+            post,
+        },
+    };
+
 }

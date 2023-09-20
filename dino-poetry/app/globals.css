@@ -293,7 +293,7 @@ a {
 }
 
 .card {
-  @apply outline-double outline-red-500 flex flex-col inset-x-0 rounded-xl w-[90vw] bg-[var(--background-main)] my-6
+  @apply outline-double  flex flex-col inset-x-0 rounded-xl w-[90vw] bg-[var(--background-main)] my-6
 }
 .card-title {
   @apply  text-center bg-[#002C2C] rounded-t-xl py-2
@@ -309,5 +309,18 @@ a {
 .card-category{
   @apply text-center
 }
+
+.search-result-card{
+  @apply outline-double cursor-pointer  flex flex-col inset-x-0 rounded-xl w-[90vw] bg-[var(--background-main)] my-6
+}
+
+.search-result-card-title{
+  @apply text-center bg-[#002C2C] rounded-t-xl py-2
+}
+
+.search-result-card:hover{
+  @apply outline-double outline-red-500 
+}
+
 
 }
