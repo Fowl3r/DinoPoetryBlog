@@ -1,4 +1,4 @@
-import CreatePost from "app/components/CreatePost";
+import CreatePost from "../components/CreatePost";
 
 export default function page() {
   return (

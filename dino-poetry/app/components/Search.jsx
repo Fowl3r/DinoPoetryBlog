@@ -23,11 +23,16 @@ export default function Search() {
 
     function searchBar(){
         setSearch(!search);
+        setSearchValue('');
     }
 
     function onChange(e){
       setSearchValue(e.target.value);
-      databaseLookup(e.target.value); 
+      if (e.target.value) { // Only perform a search if the search value is not empty
+        databaseLookup(e.target.value);
+      } else {
+        setSearchResults([]); // Clear the search results
+      } 
     }
 
    async function databaseLookup(searchValue){

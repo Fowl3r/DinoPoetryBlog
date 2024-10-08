@@ -26,14 +26,3 @@ export default async function PostPage({params}){
     )
 }
 
-export async function getServerSideProps(context) {
-    const postId = context.params.id;
-    const post = await getPost(postId);
-
-    return {
-        props: {
-            post,
-        },
-    };
-
-}

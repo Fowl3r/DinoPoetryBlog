@@ -14,6 +14,7 @@ import dynamic from 'next/dynamic';
     
 
     async function onSubmit(data){
+      console.log('Submitting data: ', data)
         login({email: data.email, password: data.password});
         reset();
         }
