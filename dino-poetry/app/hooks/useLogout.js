@@ -3,9 +3,9 @@ import { useMutation } from "@tanstack/react-query";
 
 export default function useLogout() {
 
-    function logout(){
-        pb.authStore.clear();
-
+  return useMutation({
+    mutationFn: () => {
+      pb.authStore.clear();
     }
-  return useMutation(logout);
+  });
 }
