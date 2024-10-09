@@ -15,7 +15,9 @@ Extract Burger Menu functionality into own component ✅
 Search Functionality(First search by title and then search by categories?)
 Themeing
 Refactor log in logic ✅
+Fix log in for deployed version ✅ 
 loading component
+Use docker for consistency
 
 
 # Current Stretch Goals

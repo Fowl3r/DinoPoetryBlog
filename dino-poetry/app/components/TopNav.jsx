@@ -1,12 +1,19 @@
 'use client'
 import Image from "next/image"
+import { ThemeContext } from './ThemeContext';
+import { useContext } from 'react';
 import Link from "next/link"
-import dino from '../../public/dino.svg'
+import dinoLight from '../../public/DinoLightMode.svg'
+import dinoDark from '../../public/dino.svg'
+
 export default function TopNav() {
+  const { theme } = useContext(ThemeContext);
+
+  console.log('Current theme in TopNav:', theme);
   return (
     <div className="top-nav">
     <Link href='/'>
-    <Image src={dino} className="dino-icon" alt='cartoon dinoasaur clickable home navigation button' />
+    <Image src={theme === 'light' ? dinoLight : dinoDark} className="dino-icon" alt='cartoon dinosaur clickable home navigation button' />
     </Link>
     </div>
   )
