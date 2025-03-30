@@ -20,18 +20,52 @@ import dynamic from 'next/dynamic';
         }
 
   return (
-  <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mx-auto justify-center max-w-[80vw]">
-            {isError && <p>Invalid email or password</p>}
-           {isLoading && <p>Loaaading...</p>}
-           <br/>
-           <h3>Email address:</h3>
-            <input type='text' placeholder='Enter email...' {...register('email')}/>
-            <h3>Password:</h3>
-            <input type='password' placeholder='Please enter your password' {...register('password')}/>
-            <button disabled={isLoading} className='text-white bg-green-700 rounded-xl' type='submit'>
-            {isLoading ? 'Loading' : 'Login'}
-            </button>
-        </form>
+<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mx-auto justify-center max-w-[80vw]">
+  {isError && <p className="p-3 mb-4 text-xl font-bold text-red-500 bg-black border-2 border-red-500">Invalid email or password</p>}
+  {isLoading && <p className="text-xl font-bold">Loading...</p>}
+  
+  <label htmlFor="email">Email address:</label>
+  <input 
+    id="email"
+    className='input-themed' 
+    type='text' 
+    placeholder='Enter email...' 
+    aria-label="Email address"
+    {...register('email')}
+    style={{
+    backgroundColor: '#000000',
+    color: '#ffffff',
+    border: '3px solid #ffffff',
+    borderRadius: '6px',
+    padding: '12px'
+  }}
+  />
+  
+  <label htmlFor="password">Password:</label>
+  <input 
+    id="password"
+    className='input-themed' 
+    type='password' 
+    placeholder='Please enter your password' 
+    aria-label="Password"
+    {...register('password')}
+    style={{
+    backgroundColor: '#000000',
+    color: '#ffffff',
+    border: '3px solid #ffffff',
+    borderRadius: '6px',
+    padding: '12px'
+  }}
+  />
+  
+  <button 
+    disabled={isLoading} 
+    className='login-button'
+    type='submit'
+  >
+    {isLoading ? 'Loading...' : 'Log In'}
+  </button>
+</form>
 
     
   )

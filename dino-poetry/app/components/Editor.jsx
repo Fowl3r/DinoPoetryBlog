@@ -1,3 +1,4 @@
+'use client';
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import { FaBold, FaCode, FaHeading, FaItalic, FaListOl, FaListUl, FaQuoteLeft, FaRedo, FaRulerHorizontal, FaStrikethrough, FaUnderline, FaUndo } from 'react-icons/fa'
@@ -174,6 +175,7 @@ export default function Editor({setBody, body}) {
     onUpdate: ({editor}) => {
         setBody(editor.getJSON())
     },
+    immediatelyRender:false,
   })
 
   return (

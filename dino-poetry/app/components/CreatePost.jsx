@@ -1,7 +1,7 @@
 // below tells NEXT to CSR not SSR
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Editor from "./Editor";
 import PocketBase from 'pocketbase';
@@ -13,8 +13,13 @@ export default function CreatePost(){
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [category, setCategory] = useState('');
+    const [mounted, setMounted] = useState(false);
     const isLoggedIn = pb.authStore.isValid;
     const router = useRouter();
+
+    useEffect(() => {
+        setMounted(true)
+    }, []);
 
     const URL = process.env.NEXT_PUBLIC_PB_URL
 
@@ -41,6 +46,7 @@ export default function CreatePost(){
   
     }
 
+    if(!mounted) return null;
 
     return (
         <>
@@ -55,7 +61,7 @@ export default function CreatePost(){
             >Compose a new poem...</h1>
             <input
             type='text'
-            placeholder='Title'
+            placeholder='insert masterpiece title here...'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className='title-input'
