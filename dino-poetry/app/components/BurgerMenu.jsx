@@ -76,10 +76,10 @@ export default function BurgerMenu() {
                   Compose
                 </button>
               </Link>
-              <Link href='/auth'>
+              <Link href='/dashboard'>
                 <button onClick={Hamburger} className="burger-menu-item">
                   <Image src={theme === 'light' ? loginLight : loginDark} alt='login' className=" burger-menu-item-icon" />
-                  Log Out
+                  Account
                 </button>
               </Link>
             </>

@@ -36,8 +36,8 @@ body[data-theme='dark'] {
 
 html,
 body {
-  min-width: 100%;
-  min-height: 100%;
+  min-width: 100dvw;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
@@ -226,7 +226,7 @@ input:-webkit-autofill:focus {
   }
 
   .footer-menu-icon {
-    @apply w-8 h-8 mx-2 mb-2 cursor-pointer;
+    @apply w-10 h-10 mx-2 mb-2 cursor-pointer;
   }
 
   .burger-close-container {
@@ -396,26 +396,17 @@ form button[type="submit"]:focus {
   @apply outline-none ring-4 ring-yellow-400;
 }
 
-/* Firefox-specific autofill override */
-/* Firefox-specific override - complete replacement */
-@-moz-document url-prefix() {
-  input#email, 
-  input#password,
-  input.input-themed {
+@supports (-webkit-touch-callout: none) {
+  input, textarea, select {
+    -webkit-appearance: none !important;
     background-color: #000000 !important;
     color: #ffffff !important;
     border: 3px solid #ffffff !important;
-    -moz-appearance: none !important;
-    appearance: none !important;
-    border-radius: 6px !important;
   }
   
-  /* Firefox needs special handling for box-shadow */
-  input#email:focus, 
-  input#password:focus,
-  input.input-themed:focus {
-    box-shadow: 0 0 0 3px #4fd1c5 !important;
-    outline-color: #4fd1c5 !important;
+  input:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff !important;
+    -webkit-box-shadow: 0 0 0 1000px #000000 inset !important;
   }
 }
 }

@@ -1,7 +1,6 @@
 import useLogin from '../hooks/useLogin';
 import { isLoggedIn } from '../lib/pocketbase';
 import {useForm} from 'react-hook-form';
-import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
  function LogIn() {
@@ -10,8 +9,6 @@ import dynamic from 'next/dynamic';
   // isLoading is now also coming from the useMutation hook
     const {mutate:login, isLoading, isError } = useLogin();
     const {register, handleSubmit, reset} = useForm();
-    const router = useRouter();
-    
 
     async function onSubmit(data){
       console.log('Submitting data: ', data)
