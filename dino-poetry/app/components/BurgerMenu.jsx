@@ -22,8 +22,6 @@ export default function BurgerMenu() {
   const [loggedIn, setLoggedIn] = useState(false);
   const { theme } = useContext(ThemeContext);
 
-  console.log('Current theme in BurgerMenu:', theme);
-
   function Hamburger() {
     setBurgerMenu(!burgerMenu)
   }
@@ -44,26 +42,26 @@ export default function BurgerMenu() {
             <FaWindowClose onClick={Hamburger} className='burger-close' />
           </button>
         ) : (
-          <button>
+          <button className="lg:hidden">
             <Image src={theme === 'light' ? hamburgerLight : hamburgerDark} alt='menu toggler' onClick={Hamburger} className="footer-menu-icon" />
           </button>
         )
       }
       <nav className={
         burgerMenu
-          ? "  burger-overlay  "
-          : "  burger-overlay-hidden "
+          ? "burger-overlay lg:hidden"
+          : "burger-overlay-hidden"
       }>
         <nav className="burger-menu-items-container">
           <Link href='/'>
             <button onClick={Hamburger} className="burger-menu-item">
-              <Image src={theme === 'light' ? homeLight : homeDark} alt='home' className=" burger-menu-item-icon" />
+              <Image src={theme === 'light' ? homeLight : homeDark} alt='home' className="burger-menu-item-icon" />
               Home
             </button>
           </Link>
           <Link href='/blog'>
             <button onClick={Hamburger} className="burger-menu-item">
-              <Image src={theme === 'light' ? blogLight : blogDark} alt='poem blog' className=" burger-menu-item-icon" />
+              <Image src={theme === 'light' ? blogLight : blogDark} alt='poem blog' className="burger-menu-item-icon" />
               Blog
             </button>
           </Link>
@@ -72,13 +70,13 @@ export default function BurgerMenu() {
             <>
               <Link href='/compose'>
                 <button onClick={Hamburger} className="burger-menu-item">
-                  <Image src={theme === 'light' ? quillLight : quillDark} alt='compose' className=" burger-menu-item-icon" />
+                  <Image src={theme === 'light' ? quillLight : quillDark} alt='compose' className="burger-menu-item-icon" />
                   Compose
                 </button>
               </Link>
               <Link href='/dashboard'>
                 <button onClick={Hamburger} className="burger-menu-item">
-                  <Image src={theme === 'light' ? loginLight : loginDark} alt='login' className=" burger-menu-item-icon" />
+                  <Image src={theme === 'light' ? loginLight : loginDark} alt='login' className="burger-menu-item-icon" />
                   Account
                 </button>
               </Link>
@@ -86,7 +84,7 @@ export default function BurgerMenu() {
             :
             <Link href='/auth'>
               <button onClick={Hamburger} className="burger-menu-item">
-                <Image src={theme === 'light' ? loginLight : loginDark} alt='login' className=" burger-menu-item-icon" />
+                <Image src={theme === 'light' ? loginLight : loginDark} alt='login' className="burger-menu-item-icon" />
                 Login
               </button>
             </Link>
